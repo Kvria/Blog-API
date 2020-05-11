@@ -6,6 +6,7 @@ class Config:
     '''
 
     SECRET_KEY = '012345'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://patricia:wanja2002@localhost/quotes'
     
 class ProdConfig(Config):
     '''
