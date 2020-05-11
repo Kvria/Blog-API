@@ -9,6 +9,7 @@ class RegistrationForm(FlaskForm):
     username = StringField('Enter your username',validators = [Required()])
     password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
     password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
+    role = Booleanfield('I am a writer.(If you are just a user, leave it blank')
     submit = SubmitField('Sign Up')
 
     def validate_email(self,data_field):
