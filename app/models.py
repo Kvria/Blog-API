@@ -17,7 +17,7 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     password_secure = db.Column(db.String(255))
-    role_id = db.Column(db.integer,db.ForeignKey('roles.id')
+    role_id = db.Column(db.Integer,db.ForeignKey('roles.id'))
     posts = db.relationship('Post',backref = 'user', lazy = "dynamic")
     comments = db.relationship('Comment',backref = 'user', lazy = "dynamic")
 
@@ -61,13 +61,6 @@ class Comment(db.Model):
     @classmethod
     def clear_comments(cls):
         Comment.all_comments.clear()
-
-class Role(db.Model):
-    __tablename__ = 'roles'
-
-    id = db.Column(db.Integer,primary_key = True)
-    name = db.Column(db.String(255))
-    users = db.relationship('User',backref = 'role',lazy="dynamic")
 
 class Quote:
     '''

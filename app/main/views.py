@@ -50,6 +50,7 @@ def update_pic(uname):
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
 
+
 @main.route('/user/posts/',methods= ['POST','GET'])
 @login_required
 def posts():
@@ -60,7 +61,7 @@ def posts():
 
     all_posts = Post.query.all()
 
-    # if (booleanfield == true),
+    if roles_id in Booleanfield == true:
         form.validate_on_submit():
         new_post = Post(title = title, description = description, user = current_user)
         db.session.add(new_post)
