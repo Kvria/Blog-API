@@ -67,7 +67,7 @@ class Quote:
     Quote class to define Quote Objects
     '''
 
-    def __init__(self,id,quote,author)
+    def __init__(self,id,quote,author):
         self.id = id
         self.quote = quote
         self.author = author
