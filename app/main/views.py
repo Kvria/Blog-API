@@ -1,6 +1,6 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
-from .forms import CommentForm,UpdateProfile,PostForm
+from .forms import CommentForm,PostForm
 from ..models import User,Post,Comment
 from .. import db
 from flask_login import login_required, current_user
@@ -39,17 +39,6 @@ def update_profile(uname):
 
     return render_template('profile/update.html',form =form)
 
-@main.route('/user/<uname>/update/pic',methods= ['POST'])
-@login_required
-def update_pic(uname):
-    user = User.query.filter_by(username = uname).first()
-    if 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
-        path = f'photos/{filename}'
-        user.profile_pic_path = path
-        db.session.commit()
-    return redirect(url_for('main.profile',uname=uname))
-
 
 @main.route('/user/posts/',methods= ['POST','GET'])
 @login_required
@@ -61,15 +50,15 @@ def posts():
 
     all_posts = Post.query.all()
 
-    if roles_id in Booleanfield == true:
-        form.validate_on_submit():
+    if form.validate_on_submit():
         new_post = Post(title = title, description = description, user = current_user)
         db.session.add(new_post)
         db.session.commit()
 
-        return redirect(url_for('main.posts'))
+    return redirect(url_for('main.posts'))
 
-    return render_template('posts.html',form =form, posts = all_posts)
+
+    return render_template('blog.html',form =form, posts = all_posts)
 
 @main.route('/user/<int:post_id>/',methods= ['POST','GET'])
 @login_required

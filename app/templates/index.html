@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+
+<!-- Styles block -->
+
+{% block styles%}
+    {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
+    <style>@import url('https://fonts.googleapis.com/css?family=Dosis&display=swap');</style>
+{% endblock %}
+
+{% block content %}
+
+    <div class=" home">
+
+        <br><br><br><br><br><br><br><br><br>
+        <h1>WELCOME TO THE BLOG 101.</h1>
+        <h3>This app allows one to blog about their ideas which can be voted upon and commented by the viewers.</h3>
+        <br><br><br><br><br><br><br><br><br>
+    </div>
+
+{% endblock%}

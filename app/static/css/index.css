@@ -1,0 +1,23 @@
+p {
+    font-family: 'Dosis', sans-serif;
+    color:  burlywood;
+}
+h1, h3{
+    text-align: center;
+    font-style: italic;
+    color: burlywood;
+    font-family: 'Dosis', sans-serif;
+}
+.home{
+    background-image: url(../photos/home.jpg);
+    background-size: cover;
+}
+.navbar{
+    color: #73683B;
+}
+body{
+    background-color: teal;
+}
+.profile{
+    text-align: center;
+}
